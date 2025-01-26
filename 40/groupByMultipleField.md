@@ -17,9 +17,25 @@ db.employees.aggregate(
     ]
 )
 
-
-
 ```
+use('CraftShop')
+
+
+db.employees.aggregate(
+    [
+        {
+            $group: {
+              _id:{city:"$city", designation: "$designation"}, 
+              JKonoNameDitheParenAiJaigai:{$sum:"$salary"},
+              avg:{$avg:"$salary"},
+              max:{$max:"$salary"},
+              min:{$min:"$salary"},
+              // apni chaile sum,avg,max,min shob eksathei ber korte paren.
+            }
+        }
+    ]
+)
+````
 
 
 
